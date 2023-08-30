@@ -1,10 +1,16 @@
 # zabbix
 Dicas Zabbix
 
-PSQL RODAR O COMANDO ABAIXO PRA VER 
+Conectar na máquina do Banco Postgres, e logar no usuário postgres:
+su postgres
+
+executar o comando psql:
+psql
+
+verificar as tablelas mostrando a capacidade ocupada por tabela:
 \d+ 
 
-SCRIPTS DML para rodar direto no banco em casos de limpeza:
+Scripts de manipulação de dados para rodar direto no banco em casos de limpeza, lembrando que cada linha abaixo realiza uma exclusão, geralmente limpando históricos e registros de logs antigos:
 
 delete FROM alerts where age(to_timestamp(alerts.clock)) > interval '7 days';
 
